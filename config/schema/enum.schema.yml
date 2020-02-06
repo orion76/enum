@@ -1,0 +1,56 @@
+
+enum.item:
+  type: mapping
+  mapping:
+    label:
+      type: string
+      label: Label
+    value:
+      type: [%parent.type]
+      label: Value
+
+enum.item.string:
+  type: enum.item
+  mapping:
+    value:
+      type: string
+      label: Value
+
+enum.item.integer:
+  type: enum.item
+  mapping:
+    value:
+      type: integer
+      label: Value
+
+enum.item.float:
+  type: enum.item
+  mapping:
+    value:
+      type: float
+      label: Value
+
+
+
+enum.enum.*:
+  type: config_entity
+  label: 'Enum'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    type:
+      label: string
+      type: string
+    group:
+      label: string
+      type: string
+    items:
+      type: sequence
+      sequence:
+        type: enum.item.[%parent.type]

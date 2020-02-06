@@ -1,0 +1,13 @@
+{
+    "name": "enum",
+    "type": "drupal-module",
+    "description": "Field enumeration",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/enum",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/enum",
+        "source": "http://cgit.drupalcode.org/enum"
+    }
+}

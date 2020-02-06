@@ -1,0 +1,4 @@
+services:
+  enum.service:
+    class: Drupal\enum\EnumService
+    arguments: [ '@entity_type.manager']

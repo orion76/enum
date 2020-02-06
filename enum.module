@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains enum.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function enum_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the enum module.
+    case 'help.page.enum':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Field enumeration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function enum_theme() {
+  return [
+    'enum' => [
+      'render element' => 'children',
+    ],
+  ];
+}

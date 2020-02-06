@@ -1,0 +1,7 @@
+enum.enum_filter_form:
+  path: '/enum/form/enum_filter'
+  defaults:
+    _form: '\Drupal\enum\Form\EnumFilterForm'
+    _title: 'EnumFilterForm'
+  requirements:
+    _access: 'TRUE'

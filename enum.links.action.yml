@@ -1,0 +1,5 @@
+entity.enum.add_form:
+  route_name: entity.enum.add_form
+  title: 'Add Enum'
+  appears_on:
+    - entity.enum.collection

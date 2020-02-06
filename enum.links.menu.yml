@@ -1,0 +1,8 @@
+
+# Enum menu items definition
+entity.enum.collection:
+  title: 'Enum'
+  route_name: entity.enum.collection
+  description: 'List Enum (bundles)'
+  parent: system.admin_structure
+  weight: 99
