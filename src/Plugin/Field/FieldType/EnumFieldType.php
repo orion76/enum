@@ -17,8 +17,8 @@ use Drupal\enum\Plugin\Field\EnumFieldTypeBase;
  *   id = "enum_field_type",
  *   label = @Translation("Enum"),
  *   description = @Translation("Enum field type"),
- *   default_widget = "enum_widget",
- *   default_formatter = "enum_formatter"
+ *   default_widget = "options_select",
+ *   default_formatter = "list_default"
  * )
  */
 class EnumFieldType extends EnumFieldTypeBase {
@@ -103,14 +103,13 @@ class EnumFieldType extends EnumFieldTypeBase {
   public function storageSettingsForm(array &$form, FormStateInterface $form_state, $has_data) {
     $elements = [];
 
-    $elements['max_length'] = [
-      '#type' => 'number',
-      '#title' => t('Maximum length'),
-      '#default_value' => $this->getSetting('max_length'),
+    $elements['enum'] = [
+      '#type' => 'select',
+      '#title' => t('Select enumeration'),
+      '#default_value' => $this->getSetting('enum'),
       '#required' => TRUE,
-      '#description' => t('The maximum length of the field in characters.'),
-      '#min' => 1,
-      '#disabled' => $has_data,
+      '#options'=>$this->getEnumService()->getEnumLabels(),
+      '#description' => t('Enum entity.'),
     ];
 
     return $elements;

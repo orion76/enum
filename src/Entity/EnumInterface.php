@@ -18,4 +18,11 @@ interface EnumInterface extends ConfigEntityInterface {
   public function getItems();
 
   public function getEnumLabels();
+
+  public function addItem($item);
+
+  public function setItem($item);
+
+  public function getEmptyItem();
+
 }

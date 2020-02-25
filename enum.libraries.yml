@@ -1,0 +1,8 @@
+enum:
+  version: 1.x
+  js:
+    js/enum.js: {}
+  css:
+    theme:
+      css/enum.css: {}
+  dependencies:

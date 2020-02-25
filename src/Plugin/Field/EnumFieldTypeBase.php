@@ -18,13 +18,13 @@ use function t;
 abstract class EnumFieldTypeBase extends FieldItemBase implements OptionsProviderInterface {
 
   /** @var EnumServiceInterface */
-  protected $enumService;
+  protected $_enumService;
 
-  protected function enumService(): EnumServiceInterface {
-    if (empty($this->enumService)) {
-      $this->enumService = \Drupal::service('enum.service');
+  protected function getEnumService(): EnumServiceInterface {
+    if (empty($this->_enumService)) {
+      $this->_enumService = \Drupal::service('enum.service');
     }
-    return $this->enumService;
+    return $this->_enumService;
   }
 
   /**
@@ -72,8 +72,12 @@ abstract class EnumFieldTypeBase extends FieldItemBase implements OptionsProvide
     $enum_id = $field_definition->getSetting('enum');
 
     /** @var $enum EnumInterface */
-    $enum = $this->enumService()->loadEnum($enum_id);
-    return $enum->getEnumLabels();
+    $enum = $this->getEnumService()->loadEnum($enum_id);
+    $options = [];
+    if ($enum instanceof EnumInterface) {
+      $options = $enum->getEnumLabels();
+    }
+    return $options;
   }
 
   /**
@@ -99,7 +103,7 @@ abstract class EnumFieldTypeBase extends FieldItemBase implements OptionsProvide
     $element['enum'] = [
       '#type' => 'select',
       '#title' => t('Enum type'),
-      '#options' => $this->enumService()->getEnumLabels(),
+      '#options' => $this->getEnumService()->getEnumLabels(),
       '#default_value' => $this->getSetting('enum'),
       '#required' => TRUE,
       '#disabled' => $has_data,
@@ -122,4 +126,5 @@ abstract class EnumFieldTypeBase extends FieldItemBase implements OptionsProvide
   protected static function castAllowedValue($value) {
     return $value;
   }
+
 }

@@ -2,6 +2,9 @@
 enum.item:
   type: mapping
   mapping:
+    id:
+      type: string
+      label: Id
     label:
       type: string
       label: Label
@@ -45,9 +48,6 @@ enum.enum.*:
     uuid:
       type: string
     type:
-      label: string
-      type: string
-    group:
       label: string
       type: string
     items:

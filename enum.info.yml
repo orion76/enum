@@ -3,3 +3,5 @@ type: module
 description: 'Field enumeration'
 core: 8.x
 package: 'Field types'
+dependencies:
+  - drupal:options
